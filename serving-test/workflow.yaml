@@ -1,0 +1,17 @@
+models:
+    min-workers: 1
+    max-workers: 1
+    batch-size: 4
+    max-batch-delay: 100
+    retry-attempts: 5
+    timeout-ms: 300000
+
+    forecaster:
+      url: forecaster.mar
+
+    detector:
+      url: detector.mar
+
+dag:
+  pre_processing: [forecaster]
+  forecaster: [detector]
